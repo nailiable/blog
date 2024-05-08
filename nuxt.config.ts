@@ -19,6 +19,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: 'monokai'
-    }
+    },
+    documentDriven: true
   },
 })

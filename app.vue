@@ -24,16 +24,18 @@ onBeforeUnmount(() => clearInterval(bgInterval!))
 
 <template>
   <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <Suspense>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </Suspense>
   </div>
 </template>
 
 <style lang="less">
 * {
   transition: ease-in-out 1s;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji,BlinkMacSystemFont,Helvetica Neue,Arial,PingFang SC,PingFang TC,PingFang HK,Microsoft Yahei,Microsoft JhengHei !important;
+  font-family: Inter var experimental,Inter var,Inter,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji !important;
 }
 
 body {
@@ -52,6 +54,89 @@ a {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+#nai-project-content {
+  img {
+    border-radius: 14px;
+  }
+
+  img:hover {
+    border-radius: 3px;
+  }
+
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a {
+    color: white;
+  }
+
+  h3::before, h4::before, h5::before, h6::before {
+    content: '# ';
+    color: #aaa;
+  }
+
+  p {
+    margin: 1em 0;
+    line-height: 1.5;
+  }
+
+  blockquote {
+    padding-left: 1em;
+    margin-left: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-right: 1em;
+    background-color: #44444470;
+    border-radius: 14px;
+    animation: blockquoteIn 0.5s;
+    margin-right: 1em;
+  }
+
+  @keyframes blockquoteIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  code, kbd, pre, samp {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;
+  }
+
+  code {
+    border: 1px solid #444;
+    background-color: #0F172A;
+    font-weight: 600;
+    padding: 0 .375rem;
+    border-radius: 5px;
+    font-size: .875em;
+    margin: 0 .2rem;
+  }
+
+  pre.shiki {
+    code {
+      border: none;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+    }
+    border: 1px solid #444;
+    margin: 1em 0;
+    border-radius: 5px;
+    padding: .5em 1em;
+    font-weight: 400;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;
   }
 }
 </style>
